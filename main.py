@@ -3,9 +3,7 @@
 
 res = (1200,600)
 
-
 import pygame as pg
-import time
 
 pg.init()
 clock = pg.time.Clock()
@@ -19,12 +17,10 @@ while running:
             if event.type == pg.QUIT:
                 running = False
             elif event.type == pg.KEYDOWN:
-                print(event)
                 if event.key == 32:     # kbd constant for spacebar
                         paused = not paused
-                        print('flick')
 
-        dt = (pg.time.get_ticks() - t)/1000.0
+        dt = pg.time.get_ticks() - t
 
         if not paused:
                 # actual game code
