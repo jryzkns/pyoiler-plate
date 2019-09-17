@@ -23,7 +23,7 @@ while running:
         dt = pg.time.get_ticks() - t
 
         if not paused:
-                # actual game code
+                pass # actual game code
 
         pg.display.flip()
 
