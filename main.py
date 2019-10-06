@@ -6,9 +6,11 @@ res = (1200,600)
 import pygame as pg
 
 pg.init()
-clock = pg.time.Clock()
 game_win = pg.display.set_mode(res)
-running, paused, t, dt = True, False, pg.time.get_ticks(), 0
+
+running, paused, dt = True, False, 0
+game_clock = pg.time.Clock()
+game_clock.tick()
 
 while running:
 
@@ -20,11 +22,12 @@ while running:
                 if event.key == 32:     # kbd constant for spacebar
                         paused = not paused
 
-        dt = pg.time.get_ticks() - t
+        dt = game_clock.get_time()/1000.
 
         if not paused:
                 pass # actual game code
 
-        pg.display.flip()
+        # draws
 
-        t = pg.time.get_ticks()
+        pg.display.flip()
+        game_clock.tick()
