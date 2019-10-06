@@ -19,7 +19,7 @@ while running:
             if event.type == pg.QUIT:
                 running = False
             elif event.type == pg.KEYDOWN:
-                if event.key == 32:     # kbd constant for spacebar
+                if event.key == pg.K_SPACE:
                         paused = not paused
 
         dt = game_clock.get_time()/1000.
