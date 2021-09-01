@@ -1,7 +1,7 @@
 # PYGAME BOILERPLATE CODE
-# JRYZKNS 2019
+# JRYZKNS 2021
 
-res = (1200,600)
+res = (1200, 600)
 
 import pygame as pg
 
@@ -14,20 +14,20 @@ game_clock.tick()
 
 while running:
 
-        # CALLBACKS
-        for event in pg.event.get():
-            if event.type == pg.QUIT:
-                running = False
-            elif event.type == pg.KEYDOWN:
-                if event.key == pg.K_SPACE:
-                        paused = not paused
+    # CALLBACKS
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
+            running = False
+        elif event.type == pg.KEYDOWN:
+            if event.key == pg.K_SPACE:
+                paused = not paused
 
-        dt = game_clock.get_time()/1000.
+    dt = game_clock.get_time()/1000.
 
-        if not paused:
-                pass # actual game code
+    if not paused:
+        pass # actual game code
 
-        # draws
+    # draws
 
-        pg.display.flip()
-        game_clock.tick()
+    pg.display.flip()
+    game_clock.tick()
