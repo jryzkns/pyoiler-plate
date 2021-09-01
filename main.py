@@ -1,11 +1,13 @@
 # PYGAME BOILERPLATE CODE
 # JRYZKNS 2021
+import os
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 
 res = (1200, 600)
 
 import pygame as pg
-
 pg.init()
+
 game_win = pg.display.set_mode(res)
 
 running, paused, dt = True, False, 0
