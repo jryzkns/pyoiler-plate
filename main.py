@@ -3,20 +3,19 @@
 import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 
-res = (1200, 600)
+RES = (1200, 600)
+MAX_FPS = 60
 
+import time
 import pygame as pg
 pg.init()
 
-game_win = pg.display.set_mode(res)
+game_win = pg.display.set_mode(RES)
 
 running, paused, dt = True, False, 0
-game_clock = pg.time.Clock()
-game_clock.tick()
+prev = time.time()
 
 while running:
-
-    # CALLBACKS
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False
@@ -24,12 +23,12 @@ while running:
             if event.key == pg.K_SPACE:
                 paused = not paused
 
-    dt = game_clock.get_time()/1000.
+    now = time.time()
+    dt = min(now - prev, 1/MAX_FPS)
 
     if not paused:
         pass # actual game code
 
     # draws
-
     pg.display.flip()
-    game_clock.tick()
+    prev = now
